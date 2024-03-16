@@ -3,8 +3,22 @@ bot:
   apikey: "5xesykmmcfyqfg9wzkjt8jk74h"
   name: "mr.robot"
 
+
+database:
+  host: postgres.pengwin.local
+  port: 5432
+  username: username
+  password: 12345
+  name: dbname
+  engine: postgres
+
 web:
   port: 443
   ssl:
     key: ./localhost-key.pem
     cert: ./localhost.pem
+
+ssh:
+  username: user
+  password: password
+  #privatekey: ""
