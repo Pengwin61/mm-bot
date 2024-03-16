@@ -4,13 +4,7 @@ import (
 	"mm-bot/internal/ewrap"
 
 	"github.com/mattermost/mattermost-server/v6/model"
-)
-
-const (
-	API_URL       = "http://192.168.140.185:8065"
-	API_KEY       = "5xesykmmcfyqfg9wzkjt8jk74h"
-	BOT_NAME      = "mr.robot"
-	SLASH_COMMAND = "cqhdt3nnfbrt7bmshrezrd5pge"
+	"github.com/spf13/viper"
 )
 
 type Bot struct {
@@ -19,9 +13,9 @@ type Bot struct {
 }
 
 func NewBot() *Bot {
-	client := model.NewAPIv4Client(API_URL)
-	client.SetToken(API_KEY)
-	bot, _, err := client.GetUserByUsername(BOT_NAME, BOT_NAME)
+	client := model.NewAPIv4Client(viper.GetString("bot.apiurl"))
+	client.SetToken(viper.GetString("bot.apikey"))
+	bot, _, err := client.GetUserByUsername(viper.GetString("bot.name"), viper.GetString("bot.name"))
 	ewrap.Error(err)
 
 	return &Bot{Client: client, bot: bot}

@@ -1,15 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"mm-bot/internal/bot"
+	"mm-bot/internal/configs"
 	"mm-bot/internal/core"
-	"mm-bot/internal/handlers"
-
-	"github.com/gin-gonic/gin"
+	"mm-bot/internal/web"
 )
 
 func main() {
+	configs.InitConfigsViper()
 	b := bot.NewBot()
 
 	username := "pengwin"
@@ -19,12 +18,5 @@ func main() {
 	// b.UploadFile("pengwin", "1112763.jpg", []byte("hello"))
 	// core.Greetings()
 
-	r := gin.Default()
-	handlers.InitHandlers(r)
-
-	// RUN
-	err := r.Run(fmt.Sprint("0.0.0.0", ":", "8080"))
-	if err != nil {
-		panic(err)
-	}
+	web.InitGin()
 }

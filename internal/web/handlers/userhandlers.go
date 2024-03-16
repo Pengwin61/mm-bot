@@ -8,6 +8,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+const (
+	SLASH_COMMAND = "cqhdt3nnfbrt7bmshrezrd5pge"
+)
+
 func hello(c *gin.Context) {
 
 	requerst, err := mmparser.Parser(c)

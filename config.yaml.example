@@ -1,0 +1,10 @@
+bot:
+  apiurl: "http://192.168.140.185:8065"
+  apikey: "5xesykmmcfyqfg9wzkjt8jk74h"
+  name: "mr.robot"
+
+web:
+  port: 443
+  ssl:
+    key: ./localhost-key.pem
+    cert: ./localhost.pem
