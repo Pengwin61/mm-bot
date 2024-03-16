@@ -1,10 +1,12 @@
-package core
+package greetings
 
 import (
+	"log"
+	"mm-bot/internal/bot"
 	"time"
 )
 
-func Greetings(username string) string {
+func Main(username string) string {
 	currentTime := time.Now()
 	hour := currentTime.Hour()
 	var greeting string
@@ -19,4 +21,10 @@ func Greetings(username string) string {
 		greeting = "Доброй ночи!"
 	}
 	return greeting + " " + username
+}
+
+func BackupList(username string) {
+	log.Printf("Пользователь %s запросил список баз\n", username)
+
+	bot.B.SendMessage(username, "получаю список баз")
 }

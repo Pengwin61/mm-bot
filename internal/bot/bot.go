@@ -12,6 +12,12 @@ type Bot struct {
 	bot    *model.User
 }
 
+var B *Bot
+
+func InitBot() {
+	B = NewBot()
+}
+
 func NewBot() *Bot {
 	client := model.NewAPIv4Client(viper.GetString("bot.apiurl"))
 	client.SetToken(viper.GetString("bot.apikey"))

@@ -14,7 +14,7 @@ func InitConfigsViper() {
 	viper.AddConfigPath("./")
 
 	// set default
-	viper.SetDefault("web.port", "80")
+	// viper.SetDefault("web.port", "80")
 
 	err := viper.ReadInConfig()
 	if err != nil {
